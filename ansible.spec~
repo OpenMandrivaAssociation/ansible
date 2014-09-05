@@ -70,8 +70,8 @@ rm %{buildroot}/%{_datadir}/ansible/utilities/fireball
 %{py_puresitedir}/ansible*
 %{_bindir}/ansible*
 %{_datadir}/ansible
-#%exclude %{_datadir}/ansible/utilities/fireball
-#%exclude %{_mandir}/man3/ansible.fireball.*
+%exclude %{_datadir}/ansible/utilities/fireball
+%exclude %{_mandir}/man3/ansible.fireball.*
 %config(noreplace) %{_sysconfdir}/ansible
 %doc README.md PKG-INFO COPYING
 %doc %{_mandir}/man1/ansible*
