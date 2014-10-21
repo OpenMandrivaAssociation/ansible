@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   ansible-1.6.10.tar.gz: 35d4af5beaff73de339442962da286bd3d7bacf4
+sources:
+  ansible-1.7.2.tar.gz: 21532ce402e08c91cc64c5e655758574af9fc8f3
