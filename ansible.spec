@@ -1,5 +1,5 @@
 Name: ansible
-Release: 2
+Release: 3
 Summary: SSH-based configuration management, deployment, and task execution system
 Version: 1.6.10
 Group: Development/Python
