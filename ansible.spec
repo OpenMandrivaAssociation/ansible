@@ -1,19 +1,19 @@
 Name: ansible
-Release: 3
+Release: 1
 Summary: SSH-based configuration management, deployment, and task execution system
-Version: 1.6.10
+Version: 2.9.3
 Group: Development/Python
 License: GPLv3
 Source0: http://releases.ansible.com/ansible/%{name}-%{version}.tar.gz
 Source1000: %{name}.rpmlintrc
 Url: http://ansibleworks.com
 BuildArch: noarch
-BuildRequires: python2-devel
-BuildRequires: python2-setuptools
-Requires: python2-yaml
-Requires: python2-paramiko
-Requires: python2-jinja2
-Requires: python2-keyczar
+BuildRequires: python-devel
+BuildRequires: python-setuptools
+Requires: python-yaml
+Requires: python-paramiko
+Requires: python-jinja2
+Requires: python-keyczar
 
 %description
 
@@ -27,10 +27,10 @@ are transferred to managed machines automatically.
 %setup -q
 
 %build
-python2 setup.py build
+python setup.py build
 
 %install
-python2 setup.py install -O1 --root=$RPM_BUILD_ROOT
+python setup.py install -O1 --root=$RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/etc/ansible/
 cp examples/hosts $RPM_BUILD_ROOT/etc/ansible/
 cp examples/ansible.cfg $RPM_BUILD_ROOT/etc/ansible/
@@ -42,7 +42,7 @@ rm -f $RPM_BUILD_ROOT%{_datadir}/ansible/utilities/fireball $RPM_BUILD_ROOT%{_ma
 
 %files
 %defattr(-,root,root)
-%{python2_sitelib}/ansible*
+%{python_sitelib}/ansible*
 %{_bindir}/ansible*
 %{_datadir}/ansible
 %config(noreplace) %{_sysconfdir}/ansible
