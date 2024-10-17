@@ -6,7 +6,7 @@ Group: Development/Python
 License: GPLv3
 Source0: http://releases.ansible.com/ansible/%{name}-%{version}.tar.gz
 Source1000: %{name}.rpmlintrc
-Url: http://ansibleworks.com
+Url: https://ansibleworks.com
 BuildArch: noarch
 BuildRequires: python2-devel
 BuildRequires: python2-setuptools
