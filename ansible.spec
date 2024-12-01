@@ -1,19 +1,14 @@
 Name: ansible
-Release: 4
 Summary: SSH-based configuration management, deployment, and task execution system
-Version: 1.6.10
+Version: 11.0.0
+Release: 1
 Group: Development/Python
 License: GPLv3
-Source0: http://releases.ansible.com/ansible/%{name}-%{version}.tar.gz
+Source0: https://files.pythonhosted.org/packages/source/a/ansible/ansible-%{version}.tar.gz
 Source1000: %{name}.rpmlintrc
 Url: https://ansibleworks.com
 BuildArch: noarch
-BuildRequires: python2-devel
-BuildRequires: python2-setuptools
-Requires: python2-yaml
-Requires: python2-paramiko
-Requires: python2-jinja2
-Requires: python2-keyczar
+BuildSystem: python
 
 %description
 
@@ -24,28 +19,12 @@ on remote nodes. Extension modules can be written in any language and
 are transferred to managed machines automatically.
 
 %prep
-%setup -q
+%autosetup -p1
 
-%build
-python2 setup.py build
-
-%install
-python2 setup.py install -O1 --root=$RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT/etc/ansible/
-cp examples/hosts $RPM_BUILD_ROOT/etc/ansible/
-cp examples/ansible.cfg $RPM_BUILD_ROOT/etc/ansible/
-mkdir -p $RPM_BUILD_ROOT/%{_mandir}/{man1,man3}/
-cp -v docs/man/man1/*.1 $RPM_BUILD_ROOT/%{_mandir}/man1/
-mkdir -p $RPM_BUILD_ROOT/%{_datadir}/ansible
-cp -va library/* $RPM_BUILD_ROOT/%{_datadir}/ansible/
-rm -f $RPM_BUILD_ROOT%{_datadir}/ansible/utilities/fireball $RPM_BUILD_ROOT%{_mandir}/man3/ansible.fireball*
+%install -a
+ln -s ansible-community %{buildroot}%{_bindir}/ansible
 
 %files
 %defattr(-,root,root)
-%{python2_sitelib}/ansible*
+%{python3_sitelib}/ansible*
 %{_bindir}/ansible*
-%{_datadir}/ansible
-%config(noreplace) %{_sysconfdir}/ansible
-%doc README.md PKG-INFO COPYING
-%doc %{_mandir}/man1/ansible*
-%doc examples/playbooks
