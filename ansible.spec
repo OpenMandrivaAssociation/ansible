@@ -21,9 +21,6 @@ are transferred to managed machines automatically.
 %prep
 %autosetup -p1
 
-%install -a
-ln -s ansible-community %{buildroot}%{_bindir}/ansible
-
 %files
 %defattr(-,root,root)
 %{python3_sitelib}/ansible*
