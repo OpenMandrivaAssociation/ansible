@@ -8,6 +8,7 @@ Source0: https://files.pythonhosted.org/packages/source/a/ansible/ansible-%{vers
 Source1000: %{name}.rpmlintrc
 Url: https://ansibleworks.com
 BuildArch: noarch
+BuildRequires:  python%{pyver}dist(setuptools)
 BuildSystem: python
 
 %description
