@@ -1,6 +1,6 @@
 Name: ansible
 Summary: SSH-based configuration management, deployment, and task execution system
-Version: 14.2.0
+Version: 14.5.0
 Release: 1
 Group: Development/Python
 License: GPLv3
